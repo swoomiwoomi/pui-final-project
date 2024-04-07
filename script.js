@@ -37,6 +37,11 @@ function loadTextBoxInputs() {
 document.getElementById('send-button').addEventListener('click', function() {
     var textBoxInputs = saveTextBoxInputs(); // Save text box inputs to an array and local storage
     console.log('Text box inputs:', textBoxInputs); // Output the array to the console
+
+    // Redirect to another page after a short delay
+    setTimeout(function() {
+        window.location.href = 'tasktime.html';
+    }, 0);
 });
 
 // Load text box inputs from local storage when the page is refreshed
@@ -72,10 +77,28 @@ function addTextBox() {
     }
 }
 
+// Event listener for the button that redirects to another page
 var redirectButton = document.getElementById('send-button');
+redirectButton.addEventListener('click', function() {
+    // Redirect to another page
+    window.location.href = 'tasktime.html'
+    });
 
-        // Add click event listener to the button
-        redirectButton.addEventListener('click', function() {
-            // Redirect to another page
-            window.location.href = 'tasktime.html';
-        });
+
+// Function to load text box inputs from local storage
+function loadTextBoxInputs() {
+    var savedTextBoxInputs = localStorage.getItem('textBoxInputs');
+    
+    // Check if there are saved inputs in local storage
+    if (savedTextBoxInputs !== null) {
+        return JSON.parse(savedTextBoxInputs); // Parse the saved data from JSON format
+    } else {
+        return []; // If no saved data found, return an empty array
+    }
+}
+
+// Load text box inputs from local storage when the page is refreshed
+window.addEventListener('load', function() {
+    var textBoxInputs = loadTextBoxInputs(); // Load saved text box inputs from local storage
+    console.log('Loaded text box inputs:', textBoxInputs); // Output the loaded array to the console
+});
