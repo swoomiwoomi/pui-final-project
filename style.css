@@ -96,7 +96,7 @@ Header .Header {
   #send-button {
     padding: 8px 15px;
     border: none;
-    background-color: #ffd3da;
+    background-color: #d6ebf2;
     color: #000;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -110,5 +110,5 @@ Header .Header {
   }
   
   #send-button:hover {
-    background-color: #ffbcd7;
+    background-color: #689dd6;
   }
